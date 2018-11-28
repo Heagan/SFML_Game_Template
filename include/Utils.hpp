@@ -165,4 +165,14 @@ inline float getSFMLTextMaxHeight(const sf::Text & l_text)
     return max;
 }
 
+inline void CenterSFMLText(sf::Text & l_text)
+{
+    sf::FloatRect rect = l_text.getLocalBounds();
+    auto maxHeight = Utils::getSFMLTextMaxHeight(l_text);
+    l_text.setOrigin(
+        rect.left + (rect.width * 0.5f),
+        rect.top +((maxHeight >= rect.height ?
+        maxHeight * 0.5f : rect.height * 0.5f));
+}
+
 #endif
