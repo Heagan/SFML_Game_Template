@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <strstream>
+#include <sstream>
 
 #ifdef RUNNING_WINDOWS
 #define WIN32_LEAN_AND_MEAN
@@ -144,7 +145,7 @@ inline T Interpolate(float tBegin, float tEnd,
         (tX - tBegin)) + begin_val);   
 }
 
-#include <SFML_Text.hpp>
+#include <SFML/Graphics.hpp>
 
 inline float getSFMLTextMaxHeight(const sf::Text & l_text)
 {
@@ -168,7 +169,7 @@ inline float getSFMLTextMaxHeight(const sf::Text & l_text)
 inline void CenterSFMLText(sf::Text & l_text)
 {
     sf::FloatRect rect = l_text.getLocalBounds();
-    auto maxHeight = Utils::getSFMLTextMaxHeight(l_text);
+    auto maxHeight = getSFMLTextMaxHeight(l_text);
     l_text.setOrigin(
         rect.left + (rect.width * 0.5f),
         rect.top +((maxHeight >= rect.height ?
