@@ -2,6 +2,7 @@
 #define MESSAGEHANDLER_HPP
 
 #include <include/Observer.hpp>
+#include <include/EntityManager.hpp>
 #include <map>
 
 using Subscriptions = std::unordered_map<EntityMessage, Communicator>;
